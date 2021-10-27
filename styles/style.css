@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body, html{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;	
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+}
+body{
+	background: #2c2c54;
+	max-width: 100%;
+	min-height: 100vh;
+	min-width: 320px;
+	font-family: sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.form{
+	padding: 10em;
+	background: black;
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, .5);
+}
+.form__label{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 0.7rem;
+	letter-spacing: -0.05em;
+	padding: 1em;
+	color: white;
+	cursor: pointer;
+	display: block;
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, .5);
+}
+.form__checkbox{
+	cursor: pointer;
+	opacity: 0;
+	position: absolute;
+}
+.form__icon::before{
+	content: '';
+	background: white;
+	display: block;
+	height: 2px;
+	position: absolute;
+	top: -14px;
+	width: 60%;
+	animation: icon-before-b 1s both linear;
+}
+.form__icon::after{
+	content: '';
+	background: white;
+	display: block;
+	height: 2px;
+	position: absolute;
+	top: -7px;
+	width: 80%;
+	animation: icon-after-b 1s both linear;
+}
+.form__icon{
+	background: white;
+	display: block;
+	width: 100%;
+	height: 2px;
+	margin-bottom: 5px;
+	position: relative;
+	animation: icon-b 1s both linear;
+}
+
+
+
+.form__checkbox:checked + .form__label .form__icon::before{
+	animation: icon-before 1s forwards linear;
+}
+.form__checkbox:checked + .form__label .form__icon::after{
+	animation: icon-after 1s forwards linear;
+}
+.form__checkbox:checked + .form__label .form__icon{
+	animation: icon 1s forwards linear;
+}
+
+
+@keyframes icon-before{
+	0% {
+		width: 60%;
+	}
+	25% {
+		width: 100%;
+	}
+	50% {
+		transform: translateY(14px);
+		visibility: hidden;
+	}
+	100% {
+		visibility: hidden;
+	}
+}
+@keyframes icon-after{
+	0% {
+		width: 80%;
+	}
+	25% {
+		width: 100%;
+	}
+	50% {
+		transform: translateY(7px);
+	}
+	100% {
+		width: 100%;
+		transform: rotate(-90deg) translateX(-7px);
+	}
+}
+@keyframes icon{
+	0% {
+		width: 100%;
+	}
+	25% {
+		width: 100%;
+	}
+	50% {
+		transform: translateY(-7px);
+	}
+	100% {
+		width: 100%;
+		transform: rotate(45deg) translate(-7px, -7px);
+	}
+}@keyframes icon-before-b{
+	0% {
+		transform: translateY(14px);
+		visibility: hidden;
+		width: 100%;
+	}
+	25% {
+		transform: translateY(14px);
+		visibility: hidden;
+		width: 100%;
+	}
+	50% {
+		visibility: hidden;
+		transform: translateY(14px);
+	}
+	75% {
+		width: 100%;
+		visibility: block;
+	}
+	100% {
+		width: 60%;
+	}
+}
+@keyframes icon-after-b{
+	0% {
+		width: 100%;
+		transform: rotate(-90deg) translateX(-7px);
+	}
+	25% {
+		transform: rotate(0deg) translateY(7px);
+	}
+	50% {
+		transform: translateY(7px);
+		width: 100%;
+	}
+	75% {
+		width: 100%;
+	}
+	100% {
+		width: 80%;
+	}
+}
+@keyframes icon-b{
+	0% {
+		width: 100%;
+		transform: rotate(45deg) translate(-7px, -7px);
+	}
+	25% {
+		transform: rotate(0deg) translate(0, -7px);
+	}
+	50% {
+		transform: translate(0, -7px);
+		width: 100%;
+	}
+	100% {
+		width: 100%;
+	}
+}
+/*@keyframes icon-before-b{
+	0% {
+		top: 0;
+		width: 100%;
+	}
+	25% {
+		top: 0;
+		width: 100%;
+	}
+	100% {
+		top: -7px;
+		width: 80%;
+	}
+}
+@keyframes icon-b{
+	0% {
+		transform: rotate(-45deg);
+		width: 100%;
+	}
+	25% {
+		transform: rotate(0deg);
+	}
+	75%{
+		
+	}
+	100% {
+		width: 80%;
+	}
+}
+@keyframes icon-after-b{
+	0% {
+		transform: rotate(90deg);
+		width: 100%;
+	}
+	25% {
+		transform: rotate(0deg);
+	}
+	50% {
+		top: 0;
+	}
+	75% {
+		top: 7px;
+	}
+	100%{
+		width: 120%;
+	}
+}
+
+/*.form__checkbox:checked + .form__label .form__check::before{
+	content: '';
+	width: .3em;
+	height: 0.75em;
+	background-color: #c0392b;
+	position: absolute;
+	left: 0;
+	animation: checkbefore 0.4s linear;
+	transform: translate(5.75px, 2px) rotate(-45deg);
+}
+.form__checkbox:checked + .form__label .form__check::after{
+	content: '';
+	width: .3em;
+	height: 0.75em;
+	background-color: #c0392b;
+	position: absolute;
+	left: 0;
+	animation: checkafter 0.4s linear;
+	transform: translate(5.75px, 2px) rotate(45deg);
+}
+
+@keyframes checkbefore {
+  0% {
+	opacity: 0;
+    transform: translate(5.75px, 2px);
+	box-shadow: 0px 0px 2px rgba(255, 255, 255, 1);
+  }
+  100% {
+	opacity: 1;
+    transform: translate(5.75px, 2px) rotate(-45deg);
+	box-shadow: 0px 0px 2px #c0392b;
+  }
+}
+@keyframes checkafter {
+  0% {
+	opacity: 0;
+    transform: translate(5.75px, 2px);
+	box-shadow: 0px 0px 2px rgba(255, 255, 255, 1);
+  }
+  100% {
+	opacity: 1;
+    transform: translate(5.75px, 2px) rotate(45deg);
+	box-shadow: 0px 0px 2px #c0392b;
+  }
+}
+@keyframes shadow{
+  0% {
+	box-shadow: 0px 0px 2px rgba(255, 255, 255, 1);
+  }
+  50% {
+	box-shadow: 0px 0px 2px #c0392b;
+  }
+  100% {
+	box-shadow: 0px 0px 2px rgba(255, 255, 255, 1);
+  }
+}
+@keyframes shadowback{
+  0% {
+	box-shadow: 0px 0px 2px #c0392b;
+  }
+  100% {
+	box-shadow: 0px 0px 2px rgba(255, 255, 255, 1);
+  }
+}*/
